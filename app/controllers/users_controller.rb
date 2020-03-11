@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     render plain: "New User Created with the id #{new_user.id}"
   end
 
-  def update
+  def login
     email = params[:email]
     password = params[:password]
     if User.where("email = ? and password = ?", email,password).empty?
