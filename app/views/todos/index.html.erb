@@ -1,0 +1,28 @@
+
+    <main class="MainTodoPage">
+    <article class=TodoArticle>
+    <h1 class="TodoPage-title">My Todo List</h1>
+    <section class="AddTodo">
+        <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+        <input class="AddTodo-text" type="text" placeholder="What's Pending?">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <input class="AddTodo-date" type="date">
+        <input class="AddTodo-button" type="button" value="ADD">
+    </section>
+    <%= render partial: "todo-section", locals: {
+        section_title: "Overdue",
+        todos: Todo.overdue
+        } %>   
+    <%= render partial: "todo-section", locals: {
+        section_title: "Due Today",
+        todos: Todo.due_today
+        } %>   
+    <%= render partial: "todo-section", locals: {
+        section_title: "Due Later",
+        todos: Todo.due_later
+        } %>   
+    </article>
+    </main>
+    <div class="TodoSectionCredits">
+        <p>Photo by Sergey Zolkin on Unsplash</p>
+    </div>

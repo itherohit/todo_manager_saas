@@ -10,10 +10,6 @@ body {
     background-size: cover;
 }
 
-input:checked+.TodoSection-todo {
-    text-decoration: line-through;
-}
-
 .TodoPage-title {
     font-size: 34px;
     line-height: 1.6;
@@ -58,9 +54,8 @@ input:checked+.TodoSection-todo {
 }
 
 .TodoSection-overdue {
-    font-size: 75%;
-    color: #d6d5d5;
-    margin-bottom: 5px;
+    color: #fd0000;
+    margin-left: 2.5px;
 }
 
 .TodoSection-remaining {
@@ -122,7 +117,7 @@ input:checked+.TodoSection-todo {
 .TodoSectionCredits {
     color: white;
     font-size: 70%;
-    position: relative;
-    bottom: 100%;
-    left: 110%;
+    position: absolute;
+    bottom: 2%;
+    left: 83%;
 }
