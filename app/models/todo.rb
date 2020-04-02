@@ -15,4 +15,3 @@ class Todo < ActiveRecord::Base
     all.where(completed: true)
   end
 end
-    
