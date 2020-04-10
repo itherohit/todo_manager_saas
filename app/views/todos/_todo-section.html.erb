@@ -8,37 +8,22 @@
         <p class="TodoSection-num"><%=todos.completed.count%>/<%= todos.count%></p>
         <%end %>
     </div>
-    <% if todos.count-todos.completed.count==0 %>
+    <% if todos.count==0 %>
         <div class="TodoSelecion-checkbox">
         <p class="TodoSection-todo">Hoohoo! No Work to do.</p>
         </div>
     <% else %>       
         <% todos.each do |todo| %>
         <div class="TodoSelecion-checkbox">
-            <% if section_title=="Overdue" && todo.completed==false %>
-            
-                <input type="checkbox" class="Checkbox" >
-                <p class="TodoSection-todo"><%= todo.todo_text %></p>
-            <% if section_title!="Due Today"%>
-            <p class="TodoSection-overdue"><%= todo.due_date.to_s(:short) %></p>
-            <% end %>
-            <% end %>
-            <% if section_title!="Overdue" && todo.completed %>
-            
-                <input type="checkbox" class="Checkbox" checked>
-                <p class="TodoSection-todo"><%= todo.todo_text %></p>
-            <% if section_title!="Due Today"%>
-            <p class="TodoSection-overdue"><%= todo.due_date.to_s(:short) %></p>
-            <% end %>
-            <% end %>
-            <% if  section_title!="Overdue" && !todo.completed %>
-                <input type="checkbox" class="Checkbox">
-                <p class="TodoSection-todo"><%= todo.todo_text %></p>
-                <% if section_title!="Due Today"%>
+            <input type="checkbox" class="Checkbox" <%= todo.completed ? "checked" : "" %>>
+                <% if todo.due_date!=Date.today %>
+                    <p class="TodoSection-todo"><%= todo.todo_text %></p>
                     <p class="TodoSection-overdue"><%= todo.due_date.to_s(:short) %></p>
                 <% end %>
-            <% end %>  
-            </div>     
-        <% end %>
+                <% if todo.due_date==Date.today %>
+                    <p class="TodoSection-todo"><%= todo.todo_text %></p>
+                <% end %>
+        </div>     
+        <% end %>   
     <% end %>
 </section>

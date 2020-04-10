@@ -121,8 +121,13 @@ input:checked+.TodoSection-todo {
 
 .TodoSectionCredits {
     color: white;
+    font-size: 40%;
     font-size: 70%;
-    position: relative;
-    bottom: 20%;
-    left: 120%;
+    position: fixed;
+    bottom: 2.5%;
+    left: 83%;
+}
+
+.TodoSection-overdue:hover {
+    color: rgb(9, 155, 9)
 }
