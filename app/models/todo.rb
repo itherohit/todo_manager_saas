@@ -14,4 +14,8 @@ class Todo < ActiveRecord::Base
   def self.completed
     all.where(completed: true)
   end
+  
+  def check_today
+    due_date==Date.today
+  end
 end

@@ -2,11 +2,7 @@
 
     <div class="TodoSectionTitle">
         <h2 class="TodoSection-title"><%= section_title %></h2>
-        <% if section_title=="Overdue" %>
-        <p class="TodoSection-num">0/<%= todos.count-todos.completed.count%></p>
-        <% else %>
         <p class="TodoSection-num"><%=todos.completed.count%>/<%= todos.count%></p>
-        <%end %>
     </div>
     <% if todos.count==0 %>
         <div class="TodoSelecion-checkbox">
@@ -16,11 +12,10 @@
         <% todos.each do |todo| %>
         <div class="TodoSelecion-checkbox">
             <input type="checkbox" class="Checkbox" <%= todo.completed ? "checked" : "" %>>
-                <% if todo.due_date!=Date.today %>
+                <% if !(todo.check_today) %>
                     <p class="TodoSection-todo"><%= todo.todo_text %></p>
                     <p class="TodoSection-overdue"><%= todo.due_date.to_s(:short) %></p>
-                <% end %>
-                <% if todo.due_date==Date.today %>
+                <% else %>
                     <p class="TodoSection-todo"><%= todo.todo_text %></p>
                 <% end %>
         </div>     
