@@ -1,4 +1,3 @@
-@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 body {
     font-family: sans-serif;
     max-width: 600px;
@@ -10,8 +9,17 @@ body {
     background-size: cover;
 }
 
-input:checked+.TodoSection-todo {
+.Checkbox:hover {
+    transform: scale(1.3);
+}
+
+.TodoSection-todo-checked {
     text-decoration: line-through;
+    font-size: 14px;
+    line-height: 1.2;
+    color: white;
+    text-emphasis: none;
+    padding: 10px;
 }
 
 .TodoPage-title {
@@ -36,11 +44,11 @@ input:checked+.TodoSection-todo {
 }
 
 .TodoSection-todo {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.2;
     color: white;
     text-emphasis: none;
-    padding: 10px;
+    padding: 5px;
 }
 
 .TodoSection {
@@ -81,6 +89,10 @@ input:checked+.TodoSection-todo {
     cursor: pointer;
 }
 
+.AddTodo-button:hover {
+    transform: scale(1.1);
+}
+
 .AddTodo-text {
     padding: 7px 12px;
     margin-right: 4px;
@@ -91,6 +103,7 @@ input:checked+.TodoSection-todo {
     width: 30%;
     color: #cacaca;
     margin-right: 12px;
+    right: 1%;
 }
 
 .AddTodo-date {
@@ -128,6 +141,31 @@ input:checked+.TodoSection-todo {
     left: 83%;
 }
 
-.TodoSection-overdue:hover {
-    color: rgb(9, 155, 9)
+.delete-btn {
+    visibility: hidden;
+    size: 20px;
+    color: white;
+    border: none;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+.TodoSelecion-checkbox:hover>.delete-btn {
+    visibility: visible
+}
+
+.delete-btn:hover {
+    color: red;
+}
+
+.dimage {
+    width: 25px;
+    border-radius: 100px;
+    color: white;
+}
+
+.icon {
+    position: relative;
+    border-bottom: none;
+    left: 2%;
 }
