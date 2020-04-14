@@ -3,10 +3,10 @@
         <section class="AddTodo">
             <%= form_with(url: "/todos", method: "post") do %>
                 <i class="fa fa-thumb-tack icon" aria-hidden="true"></i>
-                <input class="AddTodo-text" name=todo_text type="text" placeholder="What's Pending?">
+                <%= text_field_tag 'todo_text', nil, class:'AddTodo-text', placeholder:"What's Pending..?" %>
                 <i class="fa fa-calendar icon" aria-hidden="true"></i>
-                <input class="AddTodo-date" name=due_date type="date">
-                <input class="AddTodo-button" type="submit" value="Add">
+                <%= date_field_tag 'due_date', nil, class:'AddTodo-date' %>
+                <%= submit_tag 'Add', class:'AddTodo-button' %>
             <% end %>
         </section>
             <%= render partial: "todo-section", 
