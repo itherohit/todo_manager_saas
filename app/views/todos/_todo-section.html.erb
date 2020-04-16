@@ -1,30 +1,30 @@
 <section class="TodoSection">
-    <div class="TodoSectionTitle">
-        <h2 class="TodoSection-title"><%= section_title %></h2>
-        <p class="TodoSection-num"><%=todos.completed.count%>/<%= todos.count%></p>
+  <div class="TodoSectionTitle">
+    <h2 class="TodoSection-title"><%= section_title %></h2>
+    <p class="TodoSection-num"><%=todos.completed.count%>/<%= todos.count%></p>
+  </div>
+  <% if todos.count==0 %>
+    <div class="TodoSelecion-checkbox">
+      <p class="TodoSection-todo">Hoohoo! No Work to do.</p>
     </div>
-    <% if todos.count==0 %>
-        <div class="TodoSelecion-checkbox">
-            <p class="TodoSection-todo">Hoohoo! No Work to do.</p>
-        </div>
-    <% else %>       
-        <% todos.each do |todo| %>
-            <div class="TodoSelecion-checkbox">
-                <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
-                    <input type="checkbox" name="completed" class="Checkbox" onclick="this.form.submit()" <%= todo.completed ? "checked" : "" %>>
-                <% end %>    
-                <% if !(todo.check_today) %>
-                    <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text %></p>
-                    <p class="TodoSection-overdue"><%= todo.due_date.to_s(:short) %></p>
-                <% else %>
-                    <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text %></p>
-                <% end %>
-                <a href="javascript:void(0)" class="delete-btn">
-                    <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
-                        <input type='image' class="dimage" src="https://cdn3.vectorstock.com/i/1000x1000/74/57/the-trashcan-icon-dustbin-symbol-flat-vector-6547457.jpg" alt="Submit" />
-                    <% end %>
-                </a>
-            </div>     
-        <% end %>   
-    <% end %>
+  <% else %>       
+    <% todos.each do |todo| %>
+      <div class="TodoSelecion-checkbox">
+        <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
+          <input type="checkbox" name="completed" class="Checkbox" onclick="this.form.submit()" <%= todo.completed ? "checked" : "" %>>
+        <% end %>    
+        <% if !(todo.check_today) %>
+          <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text %></p>
+          <p class="TodoSection-overdue"><%= todo.due_date.to_s(:short) %></p>
+        <% else %>
+          <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text %></p>
+        <% end %>
+          <a href="javascript:void(0)" class="delete-btn">
+            <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
+            <%= image_submit_tag("https://cdn3.vectorstock.com/i/1000x1000/74/57/the-trashcan-icon-dustbin-symbol-flat-vector-6547457.jpg", class: 'dimage', alt: 'Submit') %>
+            <% end %>
+          </a>
+      </div>     
+    <% end %>   
+  <% end %>
 </section>
