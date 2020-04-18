@@ -8,9 +8,9 @@
         <%= submit_tag 'Add', class:'AddTodo-button' %>
       <% end %>
     </section>
-    <%= render partial: "todo-section", locals:{section_title: "Overdue",todos: Todo.overdue} %>
-    <%= render partial: "todo-section",locals:{section_title: "Due Today",todos: Todo.due_today}%>
-    <%= render partial: "todo-section",locals:{section_title: "Due Later",todos: Todo.due_later}%>
+    <%= render partial: "todo-section", locals:{section_title: "Overdue",todos: @todos.overdue} %>
+    <%= render partial: "todo-section",locals:{section_title: "Due Today",todos: @todos.due_today}%>
+    <%= render partial: "todo-section",locals:{section_title: "Due Later",todos: @todos.due_later}%>
     <div class="TodoSectionCredits">
       <p>Photo by Sergey Zolkin on Unsplash</p>
     </div>                                                                                

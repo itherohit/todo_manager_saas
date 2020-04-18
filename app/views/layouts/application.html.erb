@@ -17,8 +17,10 @@
   <body>
     <h1 class="TodoPage-title">My Todo List</h1>
     <% if @current_user %>
-      <p class="Welcome-user">Welcome <%= @current_user.first_name.capitalize %>!</p>
+      <p class="Welcome-user">Welcome <%= @current_user.first_name.capitalize %>!
+      <%= link_to "Sign Out", destroy_session_path, method: "delete" %></p>
     <% end %>
+    <p class="Flash-Error"><%= flash[:error] %></p>
     <%= yield %>
   </body>
 </html>

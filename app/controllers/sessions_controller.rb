@@ -6,7 +6,14 @@ class SessionsController < ApplicationController
             session[:current_user_id] = user.id
             redirect_to root_path
         else
-            redirect_to users_path
+            flash[:error] = "Your Login was Invalid. Retry!"
+            redirect_to new_signin_path
         end
+    end
+
+    def destroy
+        session[:current_user_id]=nil
+        @current_user = nil
+        redirect_to root_path
     end
 end
