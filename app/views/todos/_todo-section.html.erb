@@ -14,10 +14,10 @@
           <input type="checkbox" name="completed" class="Checkbox" onclick="this.form.submit()" <%= todo.completed ? "checked" : "" %>>
         <% end %>    
         <% if !(todo.check_today) %>
-          <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text %></p>
+          <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text.capitalize %></p>
           <p class="TodoSection-overdue"><%= todo.due_date.to_s(:short) %></p>
         <% else %>
-          <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text %></p>
+          <p class=<%= todo.completed ? "TodoSection-todo-checked" : "TodoSection-todo" %>><%= todo.todo_text.capitalize %></p>
         <% end %>
           <a href="javascript:void(0)" class="delete-btn">
             <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>

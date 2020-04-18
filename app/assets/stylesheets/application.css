@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.Welcome-user {
+    color: white;
+    font-size: 1rem;
+}

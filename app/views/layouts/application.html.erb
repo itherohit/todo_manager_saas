@@ -15,6 +15,10 @@
   </head>
 
   <body>
+    <h1 class="TodoPage-title">My Todo List</h1>
+    <% if @current_user %>
+      <p class="Welcome-user">Welcome <%= @current_user.first_name.capitalize %>!</p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
