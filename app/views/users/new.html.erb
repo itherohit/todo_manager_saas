@@ -1,0 +1,21 @@
+<h1 class="TodoPage-title">My Todo List</h1>
+<h2 class="Welcome-user">Welcome, New User!</h2>
+  <div class="sign-up-form" >
+    <%= form_with(url: "/users", method: "post") do %>
+      <div class="Form-section">
+        <%= text_field_tag 'first_name', nil, class:'Form-text', placeholder:"First name" %>
+      </div>
+      <div class="Form-section">
+        <%= text_field_tag 'last_name', nil, class:'Form-text', placeholder:"Last name" %>
+      </div>
+      <div class="Form-section">
+        <%= email_field_tag 'email', nil, class:'Form-text', placeholder:"Email" %>
+      </div>
+      <div class="Form-section">
+        <%= password_field_tag 'password', nil, class:'Form-text', placeholder:"Password" %>
+      </div>
+      <div class="sign-up-submit">
+        <%= submit_tag 'Sign Up!', class:'AddTodo-button' %>
+      </div>
+    <% end %>
+  </div>
