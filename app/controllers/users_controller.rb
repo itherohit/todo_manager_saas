@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in 
+
   def index
     if current_user
       redirect_to todos_path
@@ -7,9 +8,11 @@ class UsersController < ApplicationController
       render "index"
     end
   end
+
   def new
     render "new"
   end
+  
   def create
     user = User.new(
       first_name: params[:first_name],

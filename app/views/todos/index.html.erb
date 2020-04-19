@@ -1,17 +1,17 @@
 <main class="MainTodoPage">
-    <section class="AddTodo">
-      <%= form_with(url: "/todos", method: "post") do %>
-        <i class="fa fa-thumb-tack icon" aria-hidden="true"></i>
-        <%= text_field_tag 'todo_text', nil, class:'AddTodo-text', placeholder:"What's Pending..?" %>
-        <i class="fa fa-calendar icon" aria-hidden="true"></i>
-        <%= date_field_tag 'due_date', nil, class:'AddTodo-date' %>
-        <%= submit_tag 'Add', class:'AddTodo-button' %>
-      <% end %>
-    </section>
-    <%= render partial: "todo-section", locals:{section_title: "Overdue",todos: @todos.overdue} %>
-    <%= render partial: "todo-section",locals:{section_title: "Due Today",todos: @todos.due_today}%>
-    <%= render partial: "todo-section",locals:{section_title: "Due Later",todos: @todos.due_later}%>
-    <div class="TodoSectionCredits">
-      <p>Photo by Sergey Zolkin on Unsplash</p>
-    </div>                                                                                
+  <section class="AddTodo">
+    <%= form_with(url: "/todos", method: "post") do %>
+      <i class="fa fa-thumb-tack icon" aria-hidden="true"></i>
+      <%= text_field_tag 'todo_text', nil, class:'AddTodo-text', placeholder:"What's Pending..?" %>
+      <i class="fa fa-calendar icon" aria-hidden="true"></i>
+      <%= date_field_tag 'due_date', nil, class:'AddTodo-date' %>
+      <%= submit_tag 'Add', class:'AddTodo-button' %>
+    <% end %>
+  </section>
+  <%= render partial: "todo-section", locals:{section_title: "Overdue",todos: @todos.overdue} %>
+  <%= render partial: "todo-section",locals:{section_title: "Due Today",todos: @todos.due_today}%>
+  <%= render partial: "todo-section",locals:{section_title: "Due Later",todos: @todos.due_later}%>
+  <div class="TodoSectionCredits">
+    <p>Photo by Sergey Zolkin on Unsplash</p>
+  </div>                                                                                
 </main> 
